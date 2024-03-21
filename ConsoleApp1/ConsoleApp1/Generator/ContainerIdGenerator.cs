@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1.Containers;
+﻿namespace ConsoleApp1.Generator;
 
 public class ContainerIdGenerator
 {

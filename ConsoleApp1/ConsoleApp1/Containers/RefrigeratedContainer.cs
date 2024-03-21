@@ -1,6 +1,6 @@
-﻿namespace DefaultNamespace;
+﻿namespace ConsoleApp1.Containers;
 
-public class RegrigeratedContainer: Container
+public class RefrigeratedContainer: Container
 {
     public PossibleProducts ProductType { get; private set; }
     public double Temperature { get; private set; }
@@ -20,7 +20,7 @@ public class RegrigeratedContainer: Container
         { PossibleProducts.Eggs, 19 }
     };
     public RefrigeratedContainer(int height, double tareWeight, int depth, double maxPayload, PossibleProducts productType)
-        : base(height, tareWeight, depth, maxPayload, "C")
+        : base(height, tareWeight, depth, maxPayload, "R")
     {
         ProductType = productType;
         if (ProductTemperatureRequirements.ContainsKey(productType))
@@ -29,7 +29,7 @@ public class RegrigeratedContainer: Container
         }
         else
         {
-            throw new ArgumentException("Unsupported product type: " + productType);
+            throw new Exception("Unsupported product type: " + productType);
         }
     }
 }

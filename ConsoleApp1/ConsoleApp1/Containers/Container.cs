@@ -1,4 +1,6 @@
-﻿using ConsoleApp1.intefaces;
+﻿using ConsoleApp1.Exceptions;
+using ConsoleApp1.Generator;
+using ConsoleApp1.intefaces;
 
 namespace ConsoleApp1.Containers;
 
@@ -11,7 +13,7 @@ public abstract class Container : IContainer
     public string SerialNumber { get; private set; }
     public double MaxPayload { get; private set; }
 
-    rotected Container(int height, double containerWeight, int depth, double maxPayload, string containerTypePrefix)
+    protected Container(int height, double containerWeight, int depth, double maxPayload, string containerTypePrefix)
     {
         Height = height;
         ContainerWeight = containerWeight;
@@ -23,7 +25,7 @@ public abstract class Container : IContainer
     public virtual void Unload()
     {
         CargoMass = 0;
-    };
+    }
 
     public virtual void Load(double mass)
     {
@@ -33,9 +35,9 @@ public abstract class Container : IContainer
         }
         else
         {
-            throw new OverFillException("Weight of cargo is too high");
+            throw new OverFillException($"Attempt to overload a liquid container. Container Serial: {SerialNumber}");
         }
-    };
+    }
 }
 
 
