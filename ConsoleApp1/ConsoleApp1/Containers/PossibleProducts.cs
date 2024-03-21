@@ -3,5 +3,6 @@
 public enum PossibleProducts
 {
     Banana,
-    Chocolate
+    Chocolate,
+    Milk
 }
